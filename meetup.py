@@ -99,9 +99,9 @@ if __name__ == '__main__':
     if args.filedesc and not args.desc:
         args.desc = args.filedesc.read()
     if args.id:
-        args.id = args.id.rstrip('/').rsplit('/', maxsplit=1)[-1]
+        args.id = args.id.rstrip('/').rsplit('/', 1)[-1]
     if args.group:
-        args.group = args.group.rstrip('/').rsplit('/', maxsplit=1)[-1]
+        args.group = args.group.rstrip('/').rsplit('/', 1)[-1]
     
     if args.action == 'create':
         event = meetup.create(args.group, args.title, args.desc, args.date)
