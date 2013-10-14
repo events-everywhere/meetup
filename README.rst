@@ -13,7 +13,7 @@ Command examples
 .. code-block:: bash
 
     $ ./meetup.py -h
-    $ ./meetup.py create --title 'New event' --desc 'An awesome event descritpion' --date '2013-11-11 16:16'
+    $ ./meetup.py create --title 'New event' --desc 'An awesome event descritpion' --date '2013-11-11 16:16' --group Group-Url-Name
     $ ./meetup.py update --id 142805422 --desc 'An awesome event descritpion update'
     $ ./meetup.py details --id 'http://www.meetup.com/Sydney-Linux-User-Group/events/142805422/'
     $ ./meetup.py details --id 142805422
