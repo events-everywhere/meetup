@@ -9,7 +9,6 @@ from datetime import datetime
 class Meetup():
     '''Create, modify and display meetup details.
     '''
-    
     EVENT_URI = '2/event'
     GROUPS_URI = '2/groups'
     RSVPS_URI = '2/rsvps'
@@ -47,8 +46,9 @@ class Meetup():
         return response['results'][0]['id']
     
     def create(self, groupUrlname, name, description, time):
-        newEvent = {'announce': 'true', 'group_id': self.groupId(groupUrlname), \
-                    'group_urlname': groupUrlname, 'name': name, \
+        newEvent = {'announce': 'true', 
+                    'group_id': self.groupId(groupUrlname), 
+                    'group_urlname': groupUrlname, 'name': name, 
                     'description': description, 'time': time}
         return self._post(newEvent, self.EVENT_URI)
     
@@ -74,14 +74,17 @@ class Meetup():
 
 if __name__ == '__main__':
     argParser = argparse.ArgumentParser()
-    argParser.add_argument('action', choices=('create', 'update', 'details'), \
-                           help='''use "create" to create a new event, "update" 
-                           to update an event and "details" to get the event info''')
+    argParser.add_argument('action', choices=('create', 'update', 'details'), 
+                           help='''use "create" to create a new event, 
+                           "update" to update an event and 
+                           "details" to get the event info''')
     argParser.add_argument('--title', help='event title')
     argParser.add_argument('--desc', help='event description')
     argParser.add_argument('--filedesc', type=argparse.FileType('r'), 
-                           help='path to the text file containing event description')
-    argParser.add_argument('--date', help='event date, for example 2013-11-11 16:16')
+                           help='''path to the text file containing event 
+                           description''')
+    argParser.add_argument('--date', help='''event date, for example 
+                           2013-11-11 16:16''')
     argParser.add_argument('--id', help='event id or event url')
     argParser.add_argument('--group', default='Sydney-Linux-User-Group', 
                            help='group url or last part of it')
